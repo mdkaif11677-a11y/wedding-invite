@@ -2,6 +2,8 @@
 /* ===== BODY (FINAL FIX) ===== */
 body {
   margin: 0;
+  padding: 0;
+  min-height: 100vh;   /* full screen height */
   font-family: 'Scheherazade New', serif;
   color: gold;
   overflow: hidden;
@@ -10,10 +12,9 @@ body {
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
     url("image.jpg");
 
-  background-size: cover;        /* fills screen */
-  background-position: center;   /* center image */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;  /* important */
 }
 /* Dark overlay for Islamic feel */
 body::after {
@@ -206,11 +207,13 @@ h1, h2, p {
     height: 60px;
   }
 
-  .moon::after {
-    width: 60px;
-    height: 60px;
-    left: 15px;
+  @media (max-width: 600px) {
+  body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
   }
+}
 
   .names {
     font-size: 24px;
@@ -253,5 +256,8 @@ h1, h2, p {
     background-size: cover;
     background-position: center top;
   }
+}
+html, body {
+  height: 100%;
 }
 }
