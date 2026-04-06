@@ -1,0 +1,241 @@
+/* ===== BODY ===== */
+/* ===== BODY (FINAL FIX) ===== */
+body {
+  margin: 0;
+  font-family: 'Scheherazade New', serif;
+  color: gold;
+  overflow: hidden;
+
+  background-image: url("image.jpg");  /* YOUR IMAGE */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: zoomBg 20s infinite alternate;
+}
+/* Dark overlay for Islamic feel */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+/* Light texture */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* ===== SKY ===== */
+.sky {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+}
+
+/* 🌙 Moon */
+.moon {
+  position: fixed;
+  top: 40px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 30px white;
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* ✨ Stars */
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+
+  box-shadow:
+    10vw 20vh #fff, 20vw 40vh #fff, 30vw 10vh #fff,
+    40vw 70vh #fff, 50vw 30vh #fff, 60vw 80vh #fff,
+    70vw 50vh #fff, 80vw 60vh #fff, 90vw 20vh #fff;
+
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+/* ===== START SCREEN ===== */
+.start-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.start-screen button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: transparent;
+  border: 2px solid gold;
+  color: gold;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+
+/* ===== SLIDES ===== */
+.slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1.5s ease;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== TEXT ===== */
+.names {
+  font-size: 30px;
+  line-height: 1.5;
+  animation: glowText 2s infinite alternate;
+}
+
+h1, h2, p {
+  text-shadow: 0 0 10px gold;
+}
+h1, h2, p {
+  text-shadow: 
+    0 0 10px gold,
+    0 0 20px rgba(0,0,0,0.8),
+    0 0 40px black;
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 10px gold;
+  }
+  to {
+    text-shadow: 0 0 25px gold, 0 0 40px orange;
+  }
+  
+}
+@keyframes zoomBg {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+
+.mosque::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 100%, black 40%, transparent 41%),
+    radial-gradient(circle at 50% 100%, black 50%, transparent 51%),
+    radial-gradient(circle at 80% 100%, black 40%, transparent 41%);
+}
+
+/* ✨ Floating particles */
+.particles span {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: gold;
+  border-radius: 50%;
+  animation: floatUp 8s linear infinite;
+}
+
+.particles span:nth-child(1){ left:10%; animation-delay:0s;}
+.particles span:nth-child(2){ left:30%; animation-delay:2s;}
+.particles span:nth-child(3){ left:50%; animation-delay:4s;}
+.particles span:nth-child(4){ left:70%; animation-delay:1s;}
+.particles span:nth-child(5){ left:90%; animation-delay:3s;}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity:0; }
+  50% { opacity:1; }
+  100% { transform: translateY(-10vh); opacity:0; }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+  .moon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .moon::after {
+    width: 60px;
+    height: 60px;
+    left: 15px;
+  }
+
+  .names {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+  /* ✨ GOLD PARTICLES */
+.particles span {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: gold;
+  border-radius: 50%;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.7;
+}
+
+.particles span:nth-child(1){ left:10%; animation-delay:0s;}
+.particles span:nth-child(2){ left:30%; animation-delay:2s;}
+.particles span:nth-child(3){ left:50%; animation-delay:4s;}
+.particles span:nth-child(4){ left:70%; animation-delay:1s;}
+.particles span:nth-child(5){ left:90%; animation-delay:3s;}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity:0; }
+  50% { opacity:1; }
+  100% { transform: translateY(-10vh); opacity:0; }
+}
+}
